@@ -100,7 +100,7 @@ const Quiz = () => {
                   onClick={() => handleAnswerSelect(option)}
                   className={`w-full text-left px-5 py-4 rounded-2xl font-bold text-base md:text-lg transition-all duration-200 bg-white text-black shadow-md hover:shadow-xl hover:-translate-y-0.5 ${isSelected
                     ? 'ring-4 ring-yellow-400 bg-yellow-50 shadow-yellow-200'
-                    : 'hover:bg-gray-50'
+                    : 'hover:bg-gray-50 hover:cursor-pointer'
                     }`}
                 >
                   {option}
@@ -111,7 +111,7 @@ const Quiz = () => {
             {selectedAnswer && (
               <button
                 onClick={handleNext}
-                className="w-full py-3 md:py-4 bg-black text-yellow-400 font-bold text-base md:text-lg rounded-xl md:rounded-2xl hover:bg-gray-100 transition-all"
+                className="w-full py-3 md:py-4 bg-black text-yellow-400 font-bold text-base md:text-lg rounded-xl md:rounded-2xl hover:bg-gray-100 transition-all hover:cursor-pointer"
               >
                 {currentQuestionIndex + 1 === questions.length ? 'Finalizar' : 'Próxima'}
               </button>
