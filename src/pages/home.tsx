@@ -22,7 +22,7 @@ const Home = () => {
         <div className="space-y-3 w-full space-y-4">
           <button
             onClick={() => navigate('/quiz')}
-            className="w-full py-4 bg-quiz-purple text-yellow-400 font-bold text-lg rounded-full hover:bg-quiz-purple/90 transition-all hover: cursor-pointer"
+            className="w-full py-4 bg-quiz-purple text-yellow-400 font-bold text-lg rounded-xl hover:bg-quiz-purple/90 transition-all hover: cursor-pointer"
           >
             Começar
           </button>

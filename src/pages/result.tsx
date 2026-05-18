@@ -16,7 +16,7 @@ const Result = () => {
           <p className="text-white mb-8">Complete o quiz para ver seus resultados!</p>
           <button
             onClick={() => navigate('/')}
-            className="w-full py-4 bg-quiz-purple text-yellow-400 font-bold text-lg rounded-full hover:bg-quiz-purple/90 transition-all"
+            className="w-full py-4 bg-quiz-purple text-yellow-400 font-bold text-lg rounded-xl hover:bg-quiz-purple/90 transition-all"
           >
             Voltar ao Início
           </button>
@@ -49,7 +49,7 @@ const Result = () => {
         <div className="max-w-md w-full flex flex-col gap-6">
 
           {/* Card principal com porcentagem */}
-          <div className="bg-black rounded-3xl p-6 mt-4 text-center flex flex-col items-center gap-2 ring-4 ring-quiz-purple ring-offset-4 ring-offset-quiz-purple">
+          <div className="bg-black rounded-xl p-6 mt-4 text-center flex flex-col items-center gap-2 ring-4 ring-quiz-purple ring-offset-4 ring-offset-quiz-purple">
             <span className="text-5xl">{emoji}</span>
             <span className="text-yellow-400 text-5xl md:text-6xl font-extrabold">{percentage}%</span>
             <p className="text-yellow-400 text-xl font-bold">{label}</p>
@@ -57,12 +57,12 @@ const Result = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-white rounded-2xl p-5 text-center flex flex-col items-center gap-1">
+            <div className="bg-white rounded-xl p-5 text-center flex flex-col items-center gap-1">
               <span className="text-3xl">✅</span>
               <span className="text-3xl font-extrabold text-quiz-purple">{correctCount}</span>
               <span className="text-gray-500 text-sm font-semibold">Acertos</span>
             </div>
-            <div className="bg-white rounded-2xl p-5 text-center flex flex-col items-center gap-1">
+            <div className="bg-white rounded-xl p-5 text-center flex flex-col items-center gap-1">
               <span className="text-3xl">❌</span>
               <span className="text-3xl font-extrabold text-quiz-purple">{incorrectCount}</span>
               <span className="text-gray-500 text-sm font-semibold">Erros</span>
@@ -70,14 +70,14 @@ const Result = () => {
           </div>
 
           {/* Barra de progresso */}
-          <div className="bg-black/30 rounded-2xl p-4 flex flex-col gap-2">
+          <div className="bg-black/30 rounded-xl p-4 flex flex-col gap-2">
             <div className="flex justify-between text-white text-sm font-semibold">
               <span>Aproveitamento</span>
               <span>{percentage}%</span>
             </div>
-            <div className="w-full bg-white/20 rounded-full h-3">
+            <div className="w-full bg-white/20 rounded-lg h-3">
               <div
-                className="bg-yellow-400 h-3 rounded-full transition-all duration-700"
+                className="bg-yellow-400 h-3 rounded-lg transition-all duration-700"
                 style={{ width: `${percentage}%` }}
               />
             </div>
@@ -88,13 +88,13 @@ const Result = () => {
           <div className="flex flex-col gap-3">
             <button
               onClick={() => navigate('/quiz')}
-              className="w-full py-4 bg-yellow-400 text-black font-bold text-lg rounded-2xl hover:bg-yellow-300 transition-all hover:cursor-pointer"
+              className="w-full py-4 bg-yellow-400 text-black font-bold text-lg rounded-xl hover:bg-yellow-300 transition-all hover:cursor-pointer"
             >
               Jogar Novamente
             </button>
             <button
               onClick={() => navigate('/')}
-              className="w-full py-4 bg-black text-yellow-400 font-bold text-lg rounded-2xl hover:bg-gray-900 transition-all hover:cursor-pointer"
+              className="w-full py-4 bg-black text-yellow-400 font-bold text-lg rounded-xl hover:bg-gray-900 transition-all hover:cursor-pointer"
             >
               Voltar ao Início
             </button>
