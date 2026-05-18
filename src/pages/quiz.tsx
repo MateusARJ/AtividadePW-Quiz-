@@ -77,8 +77,8 @@ const Quiz = () => {
               {`Questão: ${currentQuestionIndex + 1} de ${questions.length}`}
             </span>
           </div>
-          <div className="bg-white rounded-xl p-4 md:p-6 shadow-lg">
-            <div className="flex items-start gap-3 md:gap-4">
+          <div className="bg-white rounded-2xl p-4 md:p-6 shadow-lg">
+            <div className="flex items-center gap-3 md:gap-4">
               <img
                 src="/traced-brain.png"
                 alt="Brain Icon"
@@ -90,33 +90,32 @@ const Quiz = () => {
             </div>
           </div>
 
-        <div className="flex flex-col gap-4 md:gap-6">
-          {currentQuestion.options.map((option: string, index: number) => {
-            const isSelected = selectedAnswer === option;
+          <div className="flex flex-col gap-3 md:gap-4">
+            {currentQuestion.options.map((option: string, index: number) => {
+              const isSelected = selectedAnswer === option;
 
-            return (
-              <button
-                key={index}
-                onClick={() => handleAnswerSelect(option)}
-                className={`w-full text-left px-5 py-4 rounded-xl font-bold text-base md:text-lg transition-all duration-200 bg-white text-black shadow-md hover:shadow-xl hover:-translate-y-0.5 ${
-                  isSelected
+              return (
+                <button
+                  key={index}
+                  onClick={() => handleAnswerSelect(option)}
+                  className={`w-full text-left px-5 py-4 rounded-2xl font-bold text-base md:text-lg transition-all duration-200 bg-white text-black shadow-md hover:shadow-xl hover:-translate-y-0.5 ${isSelected
                     ? 'ring-4 ring-yellow-400 bg-yellow-50 shadow-yellow-200'
-                    : 'hover:bg-gray-50'
-                }`}
-              >
-                {option}
-              </button>
-            );
-          })}
+                    : 'hover:bg-gray-50 hover:cursor-pointer'
+                    }`}
+                >
+                  {option}
+                </button>
+              );
+            })}
 
-          {selectedAnswer && (
-            <button
-              onClick={handleNext}
-              className="w-full py-3 md:py-4 bg-black text-yellow-400 font-bold text-base md:text-lg rounded-xl hover:bg-gray-100 transition-all"
-            >
-              {currentQuestionIndex + 1 === questions.length ? 'Finalizar' : 'Próxima'}
-            </button>
-          )}
+            {selectedAnswer && (
+              <button
+                onClick={handleNext}
+                className="w-full py-3 md:py-4 bg-black text-yellow-400 font-bold text-base md:text-lg rounded-xl md:rounded-2xl hover:bg-gray-100 transition-all hover:cursor-pointer"
+              >
+                {currentQuestionIndex + 1 === questions.length ? 'Finalizar' : 'Próxima'}
+              </button>
+            )}
           </div>
 
         </div>

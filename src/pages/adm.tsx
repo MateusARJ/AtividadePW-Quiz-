@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import type { Quest } from './../data/dataMock';
 import { quizData } from './../data/dataMock';
 
-const Adm = () => {
+const AdminQuestions = () => {
   const navigate = useNavigate();
   const [questions, setQuestions] = useState<Quest[]>([]);
   const [newQuestion, setNewQuestion] = useState({
@@ -181,4 +181,4 @@ const Adm = () => {
   );
 };
 
-export default Adm;
+export default AdminQuestions;
