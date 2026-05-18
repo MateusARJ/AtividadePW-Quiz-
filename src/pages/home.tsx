@@ -19,18 +19,12 @@ const Home = () => {
             oficial em... nada específico!
           </p>
         </div>
-        <div className="space-y-4 w-full">
+        <div className="space-y-3 w-full space-y-4">
           <button 
             onClick={() => navigate('/quiz')}
             className="w-full py-4 bg-quiz-purple text-yellow-400 font-bold text-lg rounded-full hover:bg-quiz-purple/90 transition-all hover: cursor-pointer"
           >
             Começar
-          </button>
-          <button 
-            onClick={() => navigate('/adm')}
-            className="w-full py-4 bg-gray-800 text-white font-bold text-lg rounded-full hover:bg-gray-700 transition-all hover: cursor-pointer"
-          >
-            Administrar Perguntas
           </button>
         </div>
       </div>

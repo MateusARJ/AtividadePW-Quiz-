@@ -72,7 +72,11 @@ const Quiz = () => {
 
     <div className="flex-1 bg-quiz-purple rounded-t-3xl p-4 md:p-8 flex items-center justify-center">
       <div className="max-w-xl w-full flex flex-col gap-6">
-
+      <div className="mb-6 text-center">
+            <span className="text-white font-bold text-lg md:text-xl">
+              {`Questão: ${currentQuestionIndex + 1} de ${questions.length}`}
+            </span>
+          </div>
         <div className="bg-white rounded-2xl p-4 md:p-6 shadow-lg">
           <div className="flex items-center gap-3 md:gap-4">
             <img
