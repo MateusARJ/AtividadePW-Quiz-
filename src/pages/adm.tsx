@@ -68,7 +68,7 @@ const AdminQuestions = () => {
       </div>
 
       <div className="flex-1 bg-quiz-purple rounded-t-3xl p-4 md:p-8 overflow-y-auto flex justify-center">
-  <div className="max-w-xl w-full flex flex-col gap-6">
+        <div className="max-w-xl w-full flex flex-col gap-6">
 
           {/* Header */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">

@@ -45,7 +45,7 @@ const Result = () => {
         <img src="/logoQuiz.png" alt="Quiz Logo" className="w-40 md:w-52 h-auto" />
       </div>
 
-     <div className="flex-1 bg-quiz-purple rounded-t-3xl pt-10 px-6 pb-6 md:px-10 md:pb-10 flex items-start justify-center">
+      <div className="flex-1 bg-quiz-purple rounded-t-3xl pt-10 px-6 pb-6 md:px-10 md:pb-10 flex items-start justify-center">
         <div className="max-w-md w-full flex flex-col gap-6">
 
           {/* Card principal com porcentagem */}
