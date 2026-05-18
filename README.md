@@ -1,7 +1,7 @@
 # Quiz Interativo - Atividade PW
-Disciplina: Programação Web 
-Professor: Jeferson do Nascimento Soares
-ALUNO: Mateus de Araujo
+- Disciplina: Programação Web 
+- Professor: Jeferson do Nascimento Soares
+- ALUNO: Mateus de Araujo
 
 Aplicação web de quiz interativo desenvolvida com React + TypeScript + Vite + Tailwind CSS.
 
