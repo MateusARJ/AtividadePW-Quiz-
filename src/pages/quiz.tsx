@@ -61,68 +61,67 @@ const Quiz = () => {
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-  <div className="min-h-screen bg-black flex flex-col">
-    <div className="flex justify-center pt-6 pb-4 px-4">
-      <img
-        src="/logoQuiz.png"
-        alt="Quiz Logo"
-        className="w-40 md:w-52 h-auto"
-      />
-    </div>
+    <div className="min-h-screen bg-black flex flex-col">
+      <div className="flex justify-center pt-6 pb-4 px-4">
+        <img
+          src="/logoQuiz.png"
+          alt="Quiz Logo"
+          className="w-40 md:w-52 h-auto"
+        />
+      </div>
 
-    <div className="flex-1 bg-quiz-purple rounded-t-3xl p-4 md:p-8 flex items-center justify-center">
-      <div className="max-w-xl w-full flex flex-col gap-6">
-      <div className="mb-6 text-center">
+      <div className="flex-1 bg-quiz-purple rounded-t-3xl p-4 md:p-8 flex items-center justify-center">
+        <div className="max-w-xl w-full flex flex-col gap-6">
+          <div className="mb-6 text-center">
             <span className="text-white font-bold text-lg md:text-xl">
               {`Questão: ${currentQuestionIndex + 1} de ${questions.length}`}
             </span>
           </div>
-        <div className="bg-white rounded-2xl p-4 md:p-6 shadow-lg">
-          <div className="flex items-center gap-3 md:gap-4">
-            <img
-              src="/traced-brain.png"
-              alt="Brain Icon"
-              className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0"
-            />
-            <h2 className="text-quiz-dark text-lg md:text-xl font-bold leading-relaxed">
-              {currentQuestion.question}
-            </h2>
+          <div className="bg-white rounded-2xl p-4 md:p-6 shadow-lg">
+            <div className="flex items-center gap-3 md:gap-4">
+              <img
+                src="/traced-brain.png"
+                alt="Brain Icon"
+                className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0"
+              />
+              <h2 className="text-quiz-dark text-lg md:text-xl font-bold leading-relaxed">
+                {currentQuestion.question}
+              </h2>
+            </div>
           </div>
-        </div>
 
-        <div className="flex flex-col gap-3 md:gap-4">
-          {currentQuestion.options.map((option: string, index: number) => {
-            const isSelected = selectedAnswer === option;
+          <div className="flex flex-col gap-3 md:gap-4">
+            {currentQuestion.options.map((option: string, index: number) => {
+              const isSelected = selectedAnswer === option;
 
-            return (
-              <button
-                key={index}
-                onClick={() => handleAnswerSelect(option)}
-                className={`w-full text-left px-5 py-4 rounded-2xl font-bold text-base md:text-lg transition-all duration-200 bg-white text-black shadow-md hover:shadow-xl hover:-translate-y-0.5 ${
-                  isSelected
+              return (
+                <button
+                  key={index}
+                  onClick={() => handleAnswerSelect(option)}
+                  className={`w-full text-left px-5 py-4 rounded-2xl font-bold text-base md:text-lg transition-all duration-200 bg-white text-black shadow-md hover:shadow-xl hover:-translate-y-0.5 ${isSelected
                     ? 'ring-4 ring-yellow-400 bg-yellow-50 shadow-yellow-200'
                     : 'hover:bg-gray-50'
-                }`}
+                    }`}
+                >
+                  {option}
+                </button>
+              );
+            })}
+
+            {selectedAnswer && (
+              <button
+                onClick={handleNext}
+                className="w-full py-3 md:py-4 bg-black text-yellow-400 font-bold text-base md:text-lg rounded-xl md:rounded-2xl hover:bg-gray-100 transition-all"
               >
-                {option}
+                {currentQuestionIndex + 1 === questions.length ? 'Finalizar' : 'Próxima'}
               </button>
-            );
-          })}
+            )}
+          </div>
 
-          {selectedAnswer && (
-            <button
-              onClick={handleNext}
-              className="w-full py-3 md:py-4 bg-black text-yellow-400 font-bold text-base md:text-lg rounded-xl md:rounded-2xl hover:bg-gray-100 transition-all"
-            >
-              {currentQuestionIndex + 1 === questions.length ? 'Finalizar' : 'Próxima'}
-            </button>
-          )}
         </div>
-
       </div>
     </div>
-  </div>
-)
+  )
 }
 
 export default Quiz;
