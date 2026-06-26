@@ -1,24 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { Quest } from './../data/dataMock';
 import { quizData } from './../data/dataMock';
 
 const Quiz = () => {
-  const [questions, setQuestions] = useState<Quest[]>([]);
+  const [questions] = useState<Quest[]>(() => {
+    const storedQuestions = localStorage.getItem('@quiz_questions');
+    return storedQuestions ? JSON.parse(storedQuestions) : quizData;
+  });
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [correctCount, setCorrectCount] = useState(0);
   const [incorrectCount, setIncorrectCount] = useState(0);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const storedQuestions = localStorage.getItem('@quiz_questions');
-    if (storedQuestions) {
-      setQuestions(JSON.parse(storedQuestions));
-    } else {
-      setQuestions(quizData);
-    }
-  }, []);
 
   const handleAnswerSelect = (answer: string) => {
     setSelectedAnswer(answer);
@@ -28,7 +22,9 @@ const Quiz = () => {
     if (selectedAnswer === null) return;
 
     const currentQuestion = questions[currentQuestionIndex];
-    if (selectedAnswer === currentQuestion.answer) {
+    const isCorrect = selectedAnswer === currentQuestion.answer;
+
+    if (isCorrect) {
       setCorrectCount(prev => prev + 1);
     } else {
       setIncorrectCount(prev => prev + 1);
@@ -40,8 +36,8 @@ const Quiz = () => {
     } else {
       navigate('/resultado', {
         state: {
-          correctCount: selectedAnswer === currentQuestion.answer ? correctCount + 1 : correctCount,
-          incorrectCount: selectedAnswer === currentQuestion.answer ? incorrectCount : incorrectCount + 1
+          correctCount: isCorrect ? correctCount + 1 : correctCount,
+          incorrectCount: isCorrect ? incorrectCount : incorrectCount + 1
         }
       });
     }
@@ -100,7 +96,7 @@ const Quiz = () => {
                   onClick={() => handleAnswerSelect(option)}
                   className={`w-full text-left px-5 py-4 rounded-2xl font-bold text-base md:text-lg transition-all duration-200 bg-white text-black shadow-md hover:shadow-xl hover:-translate-y-0.5 ${isSelected
                     ? 'ring-4 ring-yellow-400 bg-yellow-50 shadow-yellow-200'
-                    : 'hover:bg-gray-50 hover:cursor-pointer'
+                    : 'hover:bg-gray-50 cursor-pointer'
                     }`}
                 >
                   {option}
@@ -111,7 +107,7 @@ const Quiz = () => {
             {selectedAnswer && (
               <button
                 onClick={handleNext}
-                className="w-full py-3 md:py-4 bg-black text-yellow-400 font-bold text-base md:text-lg rounded-xl md:rounded-2xl hover:bg-gray-100 transition-all hover:cursor-pointer"
+                className="w-full py-3 md:py-4 bg-black text-yellow-400 font-bold text-base md:text-lg rounded-xl md:rounded-2xl hover:bg-gray-800 transition-all cursor-pointer"
               >
                 {currentQuestionIndex + 1 === questions.length ? 'Finalizar' : 'Próxima'}
               </button>

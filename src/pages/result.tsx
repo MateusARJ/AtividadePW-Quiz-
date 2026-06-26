@@ -88,13 +88,13 @@ const Result = () => {
           <div className="flex flex-col gap-3">
             <button
               onClick={() => navigate('/quiz')}
-              className="w-full py-4 bg-yellow-400 text-black font-bold text-lg rounded-2xl hover:bg-yellow-300 transition-all hover:cursor-pointer"
+              className="w-full py-4 bg-yellow-400 text-black font-bold text-lg rounded-2xl hover:bg-yellow-300 transition-all cursor-pointer"
             >
               Jogar Novamente
             </button>
             <button
               onClick={() => navigate('/')}
-              className="w-full py-4 bg-black text-yellow-400 font-bold text-lg rounded-2xl hover:bg-gray-900 transition-all hover:cursor-pointer"
+              className="w-full py-4 bg-black text-yellow-400 font-bold text-lg rounded-2xl hover:bg-gray-900 transition-all cursor-pointer"
             >
               Voltar ao Início
             </button>
