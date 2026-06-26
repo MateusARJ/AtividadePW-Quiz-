@@ -1,11 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { Quest } from './../data/dataMock';
 import { quizData } from './../data/dataMock';
 
 const AdminQuestions = () => {
   const navigate = useNavigate();
-  const [questions, setQuestions] = useState<Quest[]>([]);
+  const [questions, setQuestions] = useState<Quest[]>(() => {
+    const storedQuestions = localStorage.getItem('@quiz_questions');
+    return storedQuestions ? JSON.parse(storedQuestions) : quizData;
+  });
   const [newQuestion, setNewQuestion] = useState({
     question: '',
     option1: '',
@@ -14,15 +17,6 @@ const AdminQuestions = () => {
     option4: '',
     answer: ''
   });
-
-  useEffect(() => {
-    const storedQuestions = localStorage.getItem('@quiz_questions');
-    if (storedQuestions) {
-      setQuestions(JSON.parse(storedQuestions));
-    } else {
-      setQuestions(quizData);
-    }
-  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
